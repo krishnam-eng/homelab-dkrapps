@@ -1,0 +1,4 @@
+# https://www.elastic.co/guide/en/kibana/current/settings.html
+
+server.name: kibana
+elasticsearch.hosts: http://elasticsearch:9200
