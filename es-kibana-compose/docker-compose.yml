@@ -1,0 +1,21 @@
+services:
+
+  elasticsearch:
+    build: elasticsearch/
+    container_name: elasticsearch
+    volumes:
+      - $HOME/vol/es/data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx1024m -Xms1024m"
+      discovery.type: "single-node"
+
+  kibana:
+    build: kibana/
+    container_name: kibana
+    ports: 
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
