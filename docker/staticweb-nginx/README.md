@@ -1,9 +1,9 @@
 ```shell
-docker image build -t static-web-nginx:latest static-web-nginx 
+docker image build -t staticweb-nginx:latest static-web-nginx 
 ```
 
 ```shell
-CID = $(docker container run -d -p 8080:80 static-web-nginx:latest)
+CID = $(docker container run -d -p 8080:80 staticweb-nginx:latest)
 docker container exec -it $CID sh
 docker container logs $CID
 ```
