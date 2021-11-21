@@ -34,6 +34,6 @@ kubectl logs swebnginx-imp
 ```
 #### Declarative
 ```shell
-kubectl create -f pods/staticweb-nginx.yaml
+kubectl create -f pods/staticweb/staticweb-nginx.yaml
 kubectl port-forward sweb-nginx 8080:8080
 ```
