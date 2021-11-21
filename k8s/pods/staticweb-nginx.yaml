@@ -5,7 +5,7 @@ metadata:
   name: sweb-nginx
 spec:
   containers:
-    - image: balakrishnam/sweb-nginx:v0.0.1
+    - image: balakrishnam/sweb-nginx:v0.0.2
       name: sweb-nginx
       ports:
       - containerPort: 8080
