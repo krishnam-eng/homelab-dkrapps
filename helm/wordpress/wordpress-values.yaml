@@ -1,0 +1,7 @@
+wordpressUsername: balak
+wordpressPassword: my-pass
+wordpressFirstName: Bala
+wordpressLastName: K
+wordpressBlogName: Scattered Thoughts !
+service:
+    type: NodePort
