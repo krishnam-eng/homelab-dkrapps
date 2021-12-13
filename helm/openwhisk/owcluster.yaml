@@ -1,0 +1,20 @@
+# You will be using a NodePort ingress to access OpenWhisk. Assuming port 31001 is available to be used
+# on your host machine, a [mycluster.yaml](../deploy/docker-macOS/mycluster.yaml] for a standard deployment of OpenWhisk would be:
+# https://github.com/apache/openwhisk-deploy-kube/blob/master/docs/k8s-docker-for-mac.md#configuring-openwhisk
+whisk:
+  ingress:
+    type: NodePort
+    apiHostName: localhost
+    apiHostPort: 31001
+    useInternally: false
+
+nginx:
+  httpsNodePort: 31001
+
+# A single node cluster; so disable affinity
+affinity:
+  enabled: false
+toleration:
+  enabled: false
+invoker:
+  options: "-Dwhisk.kubernetes.user-pod-node-affinity.enabled=false"
