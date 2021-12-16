@@ -11,6 +11,11 @@ whisk:
 nginx:
   httpsNodePort: 31001
 
+# By default the OpenWhisk Helm Chart will deploy a single replica of each of the micro-services that make up the OpenWhisk control plane.
+# By changing the replicaCount value for a service, you can instead deploy multiple instances. This can support both increased scalability and fault tolerance. For example, to deploy two controller instances, add the following to your mycluster.yaml
+controller:
+  replicaCount: 2
+
 # A single node cluster; so disable affinity
 affinity:
   enabled: false

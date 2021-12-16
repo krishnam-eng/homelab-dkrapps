@@ -47,6 +47,17 @@ Once the deployment is ready, you can verify it using:
 ```shell
 helm status owdev -n openwhisk
 kubectl get pods -n openwhisk --watch
+```
 
-minikube dashboard
+> Error: install packages pods were failing and after a painful google search. 
+> Found out that , openwhisk helm chart stopped supporting minikube. 
+> After using Docker-Desktop-for-mac for starting k8s cluster. this problem solved. Thank god. 
+
+```shell
+wsk property set --apihost localhost:31001
+
+# -i to ignore cert warnings
+wsk -i property get
+wsk -i package list 
+
 ```
