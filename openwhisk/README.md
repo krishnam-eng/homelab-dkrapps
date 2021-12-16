@@ -1,3 +1,5 @@
+## Open Whisk Setup using k8s & helm
+
 ### Deploying Released Charts from Helm Repository
 
 The OpenWhisk project maintains a Helm repository at https://openwhisk.apache.org/charts. You may install officially released versions of OpenWhisk from this repository:
@@ -60,4 +62,18 @@ wsk property set --apihost localhost:31001
 wsk -i property get
 wsk -i package list 
 
+```
+## Action 
+
+#### Create 
+```shell
+wsk -i action create action_py helm/openwhisk/actions/pyaction.py
+ok: created action action_py
+```
+#### Invoke 
+```shell
+wsk -i action invoke action_py --result --param name Bala
+{
+    "greeting": "Hello Bala!"
+}
 ```
