@@ -3,6 +3,8 @@
  */
 package edu.clap;
 
+import com.google.gson.JsonObject;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
@@ -10,5 +12,14 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+    }
+
+    public static JsonObject someAction (JsonObject arg) {
+        JsonObject json = new JsonObject();
+        json.addProperty("result", "Welcome to Serverless !");
+        json.addProperty("status","SUCCESS");
+        return json.getAsJsonObject();
+
+        //todo: create fat jar from gradle
     }
 }
