@@ -118,3 +118,7 @@ Datetime            Activation ID                    Kind   Start Duration   Sta
     "greeting": "Hello stranger!"
 }
 ```
+
+###### Resources
+More Hands-On with
+https://github.com/apache/openwhisk-external-resources#awesome-openwhisk--
