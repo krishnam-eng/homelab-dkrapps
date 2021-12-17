@@ -43,6 +43,11 @@ wsk -i package list
 > wsk -i action create action_py helm/openwhisk/actions/pyaction.py
 ok: created action action_py
 ```
+
+Let's try with Java app
+```shell
+wsk action create action_j app/build/libs/app.jar --main edu.clap.JAction
+```
 ###### Invoke 
 ```shell
 > wsk -i action invoke action_py --result --param name Bala
@@ -91,5 +96,25 @@ Datetime            Activation ID                    Kind     Start Duration   S
 > wsk activation result 7b4739b0cb344e208739b0cb340e2013
 {
     "greeting": "Hello hi!"
+}
+```
+
+## Let's try in Java
+
+```shell
+> wsk action create action_j app/build/libs/app.jar --main edu.clap.JAction
+ok: created action action_j
+> wsk action invoke action_j
+ok: invoked /_/action_j with id e2a3d219f66c418da3d219f66cb18d56
+> wsk activation list --limit 10
+Datetime            Activation ID                    Kind   Start Duration   Status          Entity
+2021-12-17 23:44:19 5557acae952a443497acae952a343409 java:8 cold  149ms      developer error guest/action_java:0.0.1
+> wsk activation list --limit 10
+Datetime            Activation ID                    Kind   Start Duration   Status          Entity
+2021-12-17 23:48:32 e2a3d219f66c418da3d219f66cb18d56 java:8 cold  140ms      success         guest/action_j:0.0.1
+2021-12-17 23:44:19 5557acae952a443497acae952a343409 java:8 cold  149ms      developer error guest/action_java:0.0.1
+> wsk activation result e2a3d219f66c418da3d219f66cb18d56
+{
+    "greeting": "Hello stranger!"
 }
 ```
